@@ -5,55 +5,55 @@ import javax.persistence.*;
 @Entity
 @Table(name = "rosters", schema = "nextlevelmvp", catalog = "")
 public class RostersEntity {
-    private int idrosters;
-    private String sport;
-    private String conference;
-    private String school;
+    private int rosterId;
+    private int conferenceId;
+    private int schoolId;
+    private int sportId;
     private String firstName;
     private String lastName;
 
     @Id
-    @Column(name = "idrosters", nullable = false)
-    public int getIdrosters() {
-        return idrosters;
+    @Column(name = "roster_id", nullable = false)
+    public int getRosterId() {
+        return rosterId;
     }
 
-    public void setIdrosters(int idrosters) {
-        this.idrosters = idrosters;
-    }
-
-    @Basic
-    @Column(name = "sport", nullable = false, length = 45)
-    public String getSport() {
-        return sport;
-    }
-
-    public void setSport(String sport) {
-        this.sport = sport;
+    public void setRosterId(int rosterId) {
+        this.rosterId = rosterId;
     }
 
     @Basic
-    @Column(name = "conference", nullable = false, length = 45)
-    public String getConference() {
-        return conference;
+    @Column(name = "conference_id", nullable = false)
+    public int getConferenceId() {
+        return conferenceId;
     }
 
-    public void setConference(String conference) {
-        this.conference = conference;
-    }
-
-    @Basic
-    @Column(name = "school", nullable = false, length = 45)
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
+    public void setConferenceId(int conferenceId) {
+        this.conferenceId = conferenceId;
     }
 
     @Basic
-    @Column(name = "firstName", nullable = false, length = 45)
+    @Column(name = "school_id", nullable = false)
+    public int getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    @Basic
+    @Column(name = "sport_id", nullable = false)
+    public int getSportId() {
+        return sportId;
+    }
+
+    public void setSportId(int sportId) {
+        this.sportId = sportId;
+    }
+
+    @Basic
+    @Column(name = "first_name", nullable = false, length = 45)
     public String getFirstName() {
         return firstName;
     }
@@ -63,7 +63,7 @@ public class RostersEntity {
     }
 
     @Basic
-    @Column(name = "lastName", nullable = false, length = 45)
+    @Column(name = "last_name", nullable = false, length = 45)
     public String getLastName() {
         return lastName;
     }
@@ -79,10 +79,10 @@ public class RostersEntity {
 
         RostersEntity that = (RostersEntity) o;
 
-        if (idrosters != that.idrosters) return false;
-        if (sport != null ? !sport.equals(that.sport) : that.sport != null) return false;
-        if (conference != null ? !conference.equals(that.conference) : that.conference != null) return false;
-        if (school != null ? !school.equals(that.school) : that.school != null) return false;
+        if (rosterId != that.rosterId) return false;
+        if (conferenceId != that.conferenceId) return false;
+        if (schoolId != that.schoolId) return false;
+        if (sportId != that.sportId) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
 
@@ -91,10 +91,10 @@ public class RostersEntity {
 
     @Override
     public int hashCode() {
-        int result = idrosters;
-        result = 31 * result + (sport != null ? sport.hashCode() : 0);
-        result = 31 * result + (conference != null ? conference.hashCode() : 0);
-        result = 31 * result + (school != null ? school.hashCode() : 0);
+        int result = rosterId;
+        result = 31 * result + conferenceId;
+        result = 31 * result + schoolId;
+        result = 31 * result + sportId;
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;

@@ -2,7 +2,6 @@ package com.nextlevel.spring.controller;
 
 import com.nextlevel.spring.DAO.RosterDaoImp;
 import com.nextlevel.spring.DAO.UserDaoImp;
-import com.nextlevel.spring.Entities.RostersEntity;
 import com.nextlevel.spring.Entities.UsersEntity;
 import com.nextlevel.spring.util.HibernateConfig;
 import org.hibernate.Session;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
