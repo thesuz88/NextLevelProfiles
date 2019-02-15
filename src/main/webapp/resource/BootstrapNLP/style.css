@@ -1,0 +1,47 @@
+body {
+    overflow-x: hidden;
+}
+
+
+/*--------NAV SCROLL OFFSET ----------*/
+
+.offset: before {
+    margin-top: -4rem;
+    height: 4rem;
+    content: "";
+    display: block;
+}
+
+/* EXTRA BOOTSTRAP COLUMN PADDING*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+/*--------LANDING PAGE ----------*/
+
+
+.home-inner {
+    background-image: url('Images/mainbackground.jpg');
+}
+
+
+
+.caption {
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 38%;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+/*-------------- Font Aweomse Navigation Menu -------------------- */
+
