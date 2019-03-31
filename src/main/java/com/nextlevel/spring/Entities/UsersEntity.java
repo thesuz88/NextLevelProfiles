@@ -15,6 +15,7 @@ public class UsersEntity {
     private String city;
     private String state;
     private String zipcode;
+    private String conference;
     private String school;
     private String sport;
     private String position;
@@ -91,7 +92,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "city", nullable = true, length = 255)
+    @Column(name = "city", nullable = false, length = 255)
     public String getCity() {
         return city;
     }
@@ -101,7 +102,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "state", nullable = true, length = 45)
+    @Column(name = "state", nullable = false, length = 45)
     public String getState() {
         return state;
     }
@@ -121,7 +122,17 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "school", nullable = true, length = 255)
+    @Column(name = "conference", nullable = false, length = 255)
+    public String getConference() {
+        return conference;
+    }
+
+    public void setConference(String conference) {
+        this.conference = conference;
+    }
+
+    @Basic
+    @Column(name = "school", nullable = false, length = 255)
     public String getSchool() {
         return school;
     }
@@ -131,7 +142,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "sport", nullable = true, length = 255)
+    @Column(name = "sport", nullable = false, length = 255)
     public String getSport() {
         return sport;
     }
@@ -151,7 +162,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "gradelevel", nullable = true, length = 255)
+    @Column(name = "gradelevel", nullable = false, length = 255)
     public String getGradelevel() {
         return gradelevel;
     }
@@ -177,10 +188,13 @@ public class UsersEntity {
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
         if (state != null ? !state.equals(that.state) : that.state != null) return false;
         if (zipcode != null ? !zipcode.equals(that.zipcode) : that.zipcode != null) return false;
+        if (conference != null ? !conference.equals(that.conference) : that.conference != null) return false;
         if (school != null ? !school.equals(that.school) : that.school != null) return false;
         if (sport != null ? !sport.equals(that.sport) : that.sport != null) return false;
         if (position != null ? !position.equals(that.position) : that.position != null) return false;
-        return gradelevel != null ? gradelevel.equals(that.gradelevel) : that.gradelevel == null;
+        if (gradelevel != null ? !gradelevel.equals(that.gradelevel) : that.gradelevel != null) return false;
+
+        return true;
     }
 
     @Override
@@ -195,6 +209,7 @@ public class UsersEntity {
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (zipcode != null ? zipcode.hashCode() : 0);
+        result = 31 * result + (conference != null ? conference.hashCode() : 0);
         result = 31 * result + (school != null ? school.hashCode() : 0);
         result = 31 * result + (sport != null ? sport.hashCode() : 0);
         result = 31 * result + (position != null ? position.hashCode() : 0);

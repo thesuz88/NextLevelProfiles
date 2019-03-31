@@ -73,10 +73,13 @@
             </tr>
             <c:forEach items="${athlete}" var="athlete">
                 <tr>
+                    <td>${athlete.state}</td>
+                    <td>${athlete.city}</td>
                     <td>${athlete.conference}</td>
                     <td>${athlete.school}</td>
-                    <td>${athlete.lastName}, ${athlete.firstName}</td>
+                    <td>${athlete.lastname}, ${athlete.firstname}</td>
                     <td>${athlete.sport}</td>
+                    <td>${athlete.gradelevel}</td>
                 </tr>
             </c:forEach>
         </table>

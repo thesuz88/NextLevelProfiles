@@ -1,4 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,7 +194,7 @@
                 <div class="container">
 
 
-                    <form action="#" method="post" novalidate="novalidate">
+                    <form action="/implementSearch" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="row">
@@ -295,6 +297,10 @@
                                             <option>2021</option>
                                             <option>2022</option>
                                         </select>
+                                    </div>
+                                    <div>
+                                        <input type="submit" class="btn btn-outline-light btn-sm" value="Search">
+                                        ${invalidSearch}
                                     </div>
                                 </div>
                             </div>

@@ -8,14 +8,14 @@
         <id name="rosterId">
             <column name="roster_id" sql-type="int(11)"/>
         </id>
-        <property name="conferenceId">
-            <column name="conference_id" sql-type="int(11)"/>
+        <property name="conference">
+            <column name="conference" sql-type="varchar(45)" length="45"/>
         </property>
-        <property name="schoolId">
-            <column name="school_id" sql-type="int(11)"/>
+        <property name="school">
+            <column name="school" sql-type="varchar(45)" length="45"/>
         </property>
-        <property name="sportId">
-            <column name="sport_id" sql-type="int(11)"/>
+        <property name="sport">
+            <column name="sport" sql-type="varchar(45)" length="45"/>
         </property>
         <property name="firstName">
             <column name="first_name" sql-type="varchar(45)" length="45"/>

@@ -45,8 +45,7 @@
             <a href="welcome.jsp" class="brand w-nav-brand">
                 <h1><span class="next-level">Next Level</span><br></h1><a href="/" class="sports-profiles">Home
                 Profiles</a></a>
-            <nav role="navigation" class="w-nav-menu"><a href="/rosters" class="navlink w-nav-link">Sports</a><a
-                    href="services.jsp" class="navlink w-nav-link">Services</a><a href="/about"
+            <nav role="navigation" class="w-nav-menu"><a href="/rosters" class="navlink w-nav-link">Sports</a><a href="/about"
                                                                                   class="navlink w-nav-link w--current">About</a><a
                     href="/registration" class="signup w-nav-link">Sign up</a><a href="/login"
                                                                                class="navlink w-nav-link">Log in</a>

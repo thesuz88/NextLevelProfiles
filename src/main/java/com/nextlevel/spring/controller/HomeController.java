@@ -2,6 +2,7 @@ package com.nextlevel.spring.controller;
 
 import com.nextlevel.spring.DAO.RosterDaoImp;
 import com.nextlevel.spring.DAO.UserDaoImp;
+import com.nextlevel.spring.Entities.RostersEntity;
 import com.nextlevel.spring.Entities.UsersEntity;
 import com.nextlevel.spring.util.HibernateConfig;
 import org.hibernate.Session;
@@ -22,7 +23,6 @@ public class HomeController {
 
     UserDaoImp userDAO = new UserDaoImp();
     public static UsersEntity usersEntity;
-    RosterDaoImp rosterDao = new RosterDaoImp();
 
     @RequestMapping("/")
     public ModelAndView welcomePage() {
@@ -82,8 +82,8 @@ public class HomeController {
     public ModelAndView signupPage(Model model, @RequestParam("firstName") String firstname, @RequestParam("lastName") String lastname,
                                    @RequestParam("address") String address, @RequestParam("zipCode") String zipCode, @RequestParam("userName") String userName,
                                    @RequestParam("email") String email, @RequestParam("password") String password, @RequestParam("city") String city,
-                                   @RequestParam("state") String state, @RequestParam("school") String school, @RequestParam("sport") String sport,
-                                   @RequestParam("position") String position, @RequestParam("gradeLevel") String gradeLevel) {
+                                   @RequestParam("state") String state, @RequestParam("school") String school, @RequestParam("conference") String conference,
+                                   @RequestParam("sport") String sport, @RequestParam("position") String position, @RequestParam("gradeLevel") String gradeLevel) {
 
         Session session = HibernateConfig.getSessionTransaction();
         UsersEntity user = new UsersEntity();
@@ -100,6 +100,7 @@ public class HomeController {
             user.setCity(city);
             user.setState(state);
             user.setZipcode(zipCode);
+            user.setConference(conference);
             user.setSchool(school);
             user.setGradelevel(gradeLevel);
             user.setSport(sport);
@@ -111,13 +112,13 @@ public class HomeController {
 
             List<UsersEntity> usersEntities = userDAO.getUsersEntities(userName);
 
-            return new ModelAndView("userprofile", "user", "you are signed in");
+            return new ModelAndView("userprofile", "user", usersEntities.get(0));
 
     }
 
     @RequestMapping("/viewRoster")
     public ModelAndView viewRoster(Model model){
-        List<RostersEntity> rosterList = rosterDao.readRosterList();
+        List<UsersEntity> rosterList = userDAO.displayUserList();
 
         return new ModelAndView("rosters","athlete",rosterList);
     }

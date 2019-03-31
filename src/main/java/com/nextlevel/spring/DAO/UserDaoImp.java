@@ -5,8 +5,6 @@ import com.nextlevel.spring.util.HibernateConfig;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -64,6 +62,63 @@ public class UserDaoImp {
         else{
             return null;
         }
+    }
+
+    public List<UsersEntity> displaySearchedRoster(@RequestParam("conference") String conference,
+                                                   @RequestParam("school") String school,
+                                                   @RequestParam("sport")String sport) {
+        String hql;
+        boolean setConfParam = true;
+        boolean setSchoolParam = true;
+        boolean setSportParam = true;
+
+        if (!conference.equals("") & school.equals("") & sport.equals("")){
+            hql = "FROM UsersEntity WHERE conference= :conference";
+            setSchoolParam = false;
+            setSportParam = false;
+        }
+        else if (conference.equals("") & !school.equals("") & sport.equals("")){
+            hql = "FROM UsersEntity  WHERE school= :school";
+            setConfParam = false;
+            setSportParam = false;
+        }
+        else if (conference.equals("") & school.equals("") & !sport.equals("")){
+            hql = "FROM UsersEntity WHERE sport= :sport";
+            setConfParam = false;
+            setSchoolParam = false;
+        }
+        else if (!conference.equals("") & !school.equals("") & sport.equals("")){
+            hql = "FROM UsersEntity WHERE conference = :conference AND school = :school";
+            setSportParam = false;
+        }
+        else if (!conference.equals("") & school.equals("") & !sport.equals("")){
+            hql = "FROM UsersEntity WHERE conference = :conference AND sport = :sport";
+            setSchoolParam = false;
+        }
+        else if (conference.equals("") & !school.equals("") & !sport.equals("")){
+            hql = "FROM UsersEntity WHERE school = :school AND sport = :sport";
+            setConfParam = false;
+        }
+        else if (!conference.equals("") && !school.equals("") && !sport.equals("")) {
+            hql = "FROM UsersEntity WHERE conference= :conference AND school= :school AND sport= :sport";
+        }
+        else{
+            hql = "FROM UsersEntity";
+        }
+
+        Query getResultInfo = HibernateConfig.getSessionTransaction().createQuery(hql);
+
+        if (setConfParam){
+            getResultInfo.setParameter("conference", conference);
+        }
+        if (setSchoolParam){
+            getResultInfo.setParameter("school", school);
+        }
+        if (setSportParam){
+            getResultInfo.setParameter("sport", sport);
+        }
+
+        return getResultInfo.list();
     }
 
     public static List<UsersEntity> readUserList() {

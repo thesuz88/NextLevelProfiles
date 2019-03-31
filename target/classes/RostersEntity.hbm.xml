@@ -5,23 +5,23 @@
 <hibernate-mapping>
 
     <class name="com.nextlevel.spring.Entities.RostersEntity" table="rosters" schema="nextlevelmvp">
-        <id name="idrosters">
-            <column name="idrosters" sql-type="int(11)"/>
+        <id name="rosterId">
+            <column name="roster_id" sql-type="int(11)"/>
         </id>
-        <property name="sport">
-            <column name="sport" sql-type="varchar(45)" length="45"/>
-        </property>
         <property name="conference">
             <column name="conference" sql-type="varchar(45)" length="45"/>
         </property>
         <property name="school">
             <column name="school" sql-type="varchar(45)" length="45"/>
         </property>
+        <property name="sport">
+            <column name="sport" sql-type="varchar(45)" length="45"/>
+        </property>
         <property name="firstName">
-            <column name="firstName" sql-type="varchar(45)" length="45"/>
+            <column name="first_name" sql-type="varchar(45)" length="45"/>
         </property>
         <property name="lastName">
-            <column name="lastName" sql-type="varchar(45)" length="45"/>
+            <column name="last_name" sql-type="varchar(45)" length="45"/>
         </property>
     </class>
 </hibernate-mapping>

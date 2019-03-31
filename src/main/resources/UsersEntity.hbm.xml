@@ -27,25 +27,28 @@
             <column name="address" sql-type="varchar(255)" not-null="true"/>
         </property>
         <property name="city">
-            <column name="city" sql-type="varchar(255)" not-null="true"/>
+            <column name="city" sql-type="varchar(255)"/>
         </property>
         <property name="state">
-            <column name="state" sql-type="varchar(45)" length="45" not-null="true"/>
+            <column name="state" sql-type="varchar(45)" length="45"/>
         </property>
         <property name="zipcode">
             <column name="zipcode" sql-type="varchar(45)" length="45"/>
         </property>
+        <property name="conference">
+            <column name="conference" sql-type="varchar(255)"/>
+        </property>
         <property name="school">
-            <column name="school" sql-type="varchar(255)" not-null="true"/>
+            <column name="school" sql-type="varchar(255)"/>
         </property>
         <property name="sport">
-            <column name="sport" sql-type="varchar(255)" not-null="true"/>
+            <column name="sport" sql-type="varchar(255)"/>
         </property>
         <property name="position">
             <column name="position" sql-type="varchar(255)" not-null="true"/>
         </property>
         <property name="gradelevel">
-            <column name="gradelevel" sql-type="varchar(255)" not-null="true"/>
+            <column name="gradelevel" sql-type="varchar(255)"/>
         </property>
     </class>
 </hibernate-mapping>

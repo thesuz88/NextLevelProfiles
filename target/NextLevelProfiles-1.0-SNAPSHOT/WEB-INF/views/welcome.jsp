@@ -1,4 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,24 +192,26 @@
         <div class="os-animation" data-animation="bounceInUp" data-delay="1s">
             <section class="search-sec">
                 <div class="container">
-                    <form action="#" method="post" novalidate="novalidate">
+
+
+                    <form action="/implementSearch" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                        <select name="conference" class="form-control search-slt" id="exampleFormControlSelect1">
                                             <option>SELECT CONFERENCE</option>
-                                            <option>OK BLACK</option>
-                                            <option>OK BLUE</option>
-                                            <option>OK GOLD</option>
-                                            <option>OK GREEN</option>
-                                            <option>OK RED</option>
-                                            <option>OK SILVER</option>
-                                            <option>OK WHITE</option>
+                                            <option>O-K BLACK</option>
+                                            <option>O-K BLUE</option>
+                                            <option>O-K GOLD</option>
+                                            <option>O-K GREEN</option>
+                                            <option>O-K RED</option>
+                                            <option>O-K SILVER</option>
+                                            <option>O-K WHITE</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                        <select name="school" class="form-control search-slt" id="exampleFormControlSelect1">
                                             <option>SELECT SCHOOL</option>
                                             <option>ALLENDALE</option>
                                             <option>BELDING</option>
@@ -259,7 +263,7 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                        <select name="sport" class="form-control search-slt" id="exampleFormControlSelect1">
                                             <option>SELECT SPORT</option>
                                             <option>BASEBALL</option>
                                             <option>BASKETBALL</option>
@@ -286,7 +290,7 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                        <select name="year" class="form-control search-slt" id="exampleFormControlSelect1">
                                             <option>SELECT YEAR</option>
                                             <option>2019</option>
                                             <option>2020</option>
@@ -294,10 +298,16 @@
                                             <option>2022</option>
                                         </select>
                                     </div>
+                                    <div>
+                                        <input type="submit" class="btn btn-outline-light btn-sm" value="Search">
+                                        ${invalidSearch}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </form>
+
+
                 </div>
             </section>
         </div>

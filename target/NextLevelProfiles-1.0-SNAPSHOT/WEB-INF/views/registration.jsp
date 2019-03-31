@@ -48,6 +48,8 @@
             <input type="text" name="state" id="state" placeholder="state"/><br>
         <label name="zipCode">Zip Code</label>
             <input type="text" name="zipCode" id="zipCode" placeholder="zipCode"/><br>
+        <label name="conference">Conference</label>
+            <input type="text" name="conference" id="conference" placeholder="conference"/><br>
         <label name="school">School</label>
             <input type="text" name="school" id="school" placeholder="school"/><br>
         <label name="gradeLevel">Grade Level</label>

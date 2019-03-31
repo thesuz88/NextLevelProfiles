@@ -1,5 +1,7 @@
 package com.nextlevel.spring.DAO;
 
+import com.nextlevel.spring.Entities.RostersEntity;
+
 import java.util.List;
 
 public interface RosterDAO {
