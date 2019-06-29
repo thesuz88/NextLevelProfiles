@@ -1,15 +1,10 @@
 package com.nextlevel.spring.controller;
 
-import com.nextlevel.spring.DAO.RosterDaoImp;
 import com.nextlevel.spring.DAO.UserDaoImp;
-import com.nextlevel.spring.Entities.RostersEntity;
 import com.nextlevel.spring.Entities.UsersEntity;
-import com.nextlevel.spring.util.HibernateConfig;
-import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -30,6 +25,12 @@ public class HomeController {
                 ModelAndView("welcome", "message", "Hello World");
                 //viewName = filename, modelObject = display message, modelName = variable place holder
     }
+    @RequestMapping("/login")
+    public ModelAndView servicesPage() {
+        return new
+                ModelAndView("log-in", "message", "Register or log in!");
+        //viewName = filename, modelObject = display message, modelName = variable place holder
+    }
 
     @RequestMapping("/about")
     public ModelAndView aboutPage() {
@@ -45,82 +46,20 @@ public class HomeController {
         //viewName = filename, modelObject = display message, modelName = variable place holder
     }
 
-    @RequestMapping("/login")
-    public ModelAndView servicesPage() {
-        return new
-                ModelAndView("log-in", "message", "Register or log in!");
-        //viewName = filename, modelObject = display message, modelName = variable place holder
-    }
 
-    @RequestMapping("/registration")
-    public ModelAndView registrationPage() {
-        return new
-                ModelAndView("registration", "message", "Register");
-        //viewName = filename, modelObject = display message, modelName = variable place holder
-    }
 
-    @RequestMapping("/loginUser")
-    public ModelAndView loginUser(Model model, @RequestParam("user") String userName, @RequestParam("password") String password) {
-        String invalidLogin = "User name and/or password is not found. Please try again.";
-        List<UsersEntity> usersEntityList = userDAO.getUsersEntities(userName);
 
-        if (!usersEntityList.isEmpty() && usersEntityList.get(0).getUsername().equalsIgnoreCase(userName)){
-
-            if (usersEntityList.get(0).getPassword().equals(password)) {
-
-                HomeController.usersEntity = usersEntityList.get(0);
-
-                return new ModelAndView("userprofile", "user", HomeController.usersEntity);
-            }
-            else{
-                return new ModelAndView ("log-in","invalid",invalidLogin);
-            }
-        }
-        return new ModelAndView("log-in","invalid","Please try again");
-    }
-    @RequestMapping("/registerUser")
-    public ModelAndView signupPage(Model model, @RequestParam("firstName") String firstname, @RequestParam("lastName") String lastname,
-                                   @RequestParam("address") String address, @RequestParam("zipCode") String zipCode, @RequestParam("userName") String userName,
-                                   @RequestParam("email") String email, @RequestParam("password") String password, @RequestParam("city") String city,
-                                   @RequestParam("state") String state, @RequestParam("school") String school, @RequestParam("conference") String conference,
-                                   @RequestParam("sport") String sport, @RequestParam("position") String position, @RequestParam("gradeLevel") String gradeLevel) {
-
-        Session session = HibernateConfig.getSessionTransaction();
-        UsersEntity user = new UsersEntity();
-        ModelAndView alert = UserDaoImp.validateUserInfo(email, userName);
-        if (alert != null) {
-            return alert;
-        }else {
-            user.setFirstname(firstname);
-            user.setLastname(lastname);
-            user.setUsername(userName);
-            user.setPassword(password);
-            user.setEmail(email);
-            user.setAddress(address);
-            user.setCity(city);
-            user.setState(state);
-            user.setZipcode(zipCode);
-            user.setConference(conference);
-            user.setSchool(school);
-            user.setGradelevel(gradeLevel);
-            user.setSport(sport);
-            user.setPosition(position);
-        }
-            session.save(user);
-            session.getTransaction().commit();
-            session.close();
-
-            List<UsersEntity> usersEntities = userDAO.getUsersEntities(userName);
-
-            return new ModelAndView("userprofile", "user", usersEntities.get(0));
-
-    }
 
     @RequestMapping("/viewRoster")
     public ModelAndView viewRoster(Model model){
         List<UsersEntity> rosterList = userDAO.displayUserList();
 
         return new ModelAndView("rosters","athlete",rosterList);
+    }
+
+    @RequestMapping("/userProfile")
+    public ModelAndView viewProfile(Model model){
+        return new ModelAndView("userprofile", "user", "");
     }
 
 }

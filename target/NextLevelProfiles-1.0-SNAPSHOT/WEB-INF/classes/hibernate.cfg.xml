@@ -6,27 +6,24 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/nextlevelmvp</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hbm2ddl.auto">update</property>
+
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="show_sql">true</property>
 
-      <property name="connection.username">root</property>
-      <property name="connection.password">Ste27Lau17Zoe22</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">Ste27Lau17Zoe22</property>
 
-      <mapping class="com.nextlevel.spring.Entities.UsersEntity"/>
-      <mapping resource="UsersEntity.hbm.xml"/>
-    <mapping class="com.nextlevel.spring.Entities.RostersEntity"/>
     <mapping resource="RostersEntity.hbm.xml"/>
-    <mapping class="com.nextlevel.spring.Entities.ConferenceEntity"/>
-    <mapping resource="ConferenceEntity.hbm.xml"/>
-    <mapping class="com.nextlevel.spring.Entities.SchoolsEntity"/>
-    <mapping resource="SchoolsEntity.hbm.xml"/>
-    <mapping class="com.nextlevel.spring.Entities.SportsEntity"/>
-    <mapping resource="SportsEntity.hbm.xml"/>
+    <mapping class="com.nextlevel.spring.Entities.RostersEntity"/>
+    <mapping resource="UsersEntity.hbm.xml"/>
+    <mapping class="com.nextlevel.spring.Entities.UsersEntity"/>
 
 
 
-      <!-- DB schema will be updated if needed -->
+    <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
 
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
 </hibernate-configuration>

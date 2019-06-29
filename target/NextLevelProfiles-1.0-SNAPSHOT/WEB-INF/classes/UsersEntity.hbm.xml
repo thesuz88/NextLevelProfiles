@@ -5,9 +5,12 @@
 <hibernate-mapping>
 
     <class name="com.nextlevel.spring.Entities.UsersEntity" table="users" schema="nextlevelmvp">
-        <id name="userId">
-            <column name="userID" sql-type="int(11)"/>
+        <id name="username">
+            <column name="username" sql-type="varchar(45)" length="45"/>
         </id>
+        <property name="userId">
+            <column name="userID" sql-type="int(11)"/>
+        </property>
         <property name="firstname">
             <column name="firstname" sql-type="varchar(255)"/>
         </property>
@@ -16,9 +19,6 @@
         </property>
         <property name="email">
             <column name="email" sql-type="varchar(255)"/>
-        </property>
-        <property name="username">
-            <column name="username" sql-type="varchar(45)" length="45"/>
         </property>
         <property name="password">
             <column name="password" sql-type="varchar(45)" length="45"/>
@@ -49,6 +49,15 @@
         </property>
         <property name="gradelevel">
             <column name="gradelevel" sql-type="varchar(255)"/>
+        </property>
+        <property name="profileImage">
+            <column name="profileImage" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="image1">
+            <column name="image_1" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="video1">
+            <column name="video_1" sql-type="varchar(255)" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

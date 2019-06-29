@@ -165,6 +165,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Log in</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/userProfile">User Profile</a>
+                </li>
             </ul>
         </div>
     </nav>

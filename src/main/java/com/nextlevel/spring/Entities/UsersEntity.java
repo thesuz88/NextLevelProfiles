@@ -6,10 +6,10 @@ import javax.persistence.*;
 @Table(name = "users", schema = "nextlevelmvp", catalog = "")
 public class UsersEntity {
     private int userId;
+    private String username;
     private String firstname;
     private String lastname;
     private String email;
-    private String username;
     private String password;
     private String address;
     private String city;
@@ -20,8 +20,11 @@ public class UsersEntity {
     private String sport;
     private String position;
     private String gradelevel;
+    private String profileImage;
+    private String image1;
+    private String video1;
 
-    @Id
+    @Basic
     @Column(name = "userID", nullable = false)
     public int getUserId() {
         return userId;
@@ -29,6 +32,17 @@ public class UsersEntity {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    @Id
+    @JoinColumn(name = "username", nullable = false, referencedColumnName ="username")
+    @Column(name = "username", nullable = false, length = 45)
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Basic
@@ -59,16 +73,6 @@ public class UsersEntity {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Basic
-    @Column(name = "username", nullable = false, length = 45)
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     @Basic
@@ -179,10 +183,10 @@ public class UsersEntity {
         UsersEntity that = (UsersEntity) o;
 
         if (userId != that.userId) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (address != null ? !address.equals(that.address) : that.address != null) return false;
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
@@ -200,10 +204,10 @@ public class UsersEntity {
     @Override
     public int hashCode() {
         int result = userId;
+        result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
@@ -215,5 +219,35 @@ public class UsersEntity {
         result = 31 * result + (position != null ? position.hashCode() : 0);
         result = 31 * result + (gradelevel != null ? gradelevel.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "profileImage", nullable = true, length = 255)
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    @Basic
+    @Column(name = "image_1", nullable = true, length = 255)
+    public String getImage1() {
+        return image1;
+    }
+
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+
+    @Basic
+    @Column(name = "video_1", nullable = true, length = 255)
+    public String getVideo1() {
+        return video1;
+    }
+
+    public void setVideo1(String video1) {
+        this.video1 = video1;
     }
 }

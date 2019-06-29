@@ -15,10 +15,11 @@ public class UserDaoImp {
 
 
 
+
     public List<UsersEntity> getUsersEntities (@RequestParam("userName") String userName){
         Session session = HibernateConfig.getSessionTransaction();
 
-        String hql = "FROM UsersEntity WHERE username= :username";
+        String hql = "FROM UsersEntity WHERE username = :username";
 
         Query getUserInfo = session.createQuery(hql);
         getUserInfo.setParameter("username",userName);

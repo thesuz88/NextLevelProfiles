@@ -26,14 +26,14 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="31a2a019-feba-4a3b-ad91-fae228b0a9cf" />
-          <unit-entry name="hibernate.cfg.xml" value="31a2a019-feba-4a3b-ad91-fae228b0a9cf" />
+          <unit-entry name="hibernate.cfg.xml" value="a10bf034-dd47-4e13-8913-0990a8c34f75" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
