@@ -47,7 +47,7 @@
             </ul>
             <form class="form-inline mr-auto" target="_self">
                 <div class="form-group"><label for="search-field"><i class="fa fa-search border-white"></i></label><input class="form-control search-field" type="search" name="search" placeholder="Search Athlete" id="search-field" style="color: white;"></div>
-            </form><a class="btn btn-primary text-center text-white action-button" role="button" href="#" style="background-color: rgb(3,110,235);">Log out</a></div>
+            </form><a class="btn btn-primary text-center text-white action-button" role="button" href="/logoutUser" style="background-color: rgb(3,110,235);">Log out</a></div>
     </div>
 </nav>
 <div class="text-center d-flex flex-column justify-content-xl-end align-items-xl-center" data-bs-parallax-bg="true" style="height: 90vh;background-image: url(&quot;/resource/BootstrapNLP/UserProfile/assets/img/mainbackground.jpg&quot;);background-position: center;background-size: cover;"></div>

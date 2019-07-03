@@ -4,6 +4,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
 
 public class HibernateConfig {
 
@@ -33,6 +39,13 @@ public class HibernateConfig {
         SessionFactory sessionFact = cfg.buildSessionFactory();
         Session s = sessionFact.openSession();
         s.beginTransaction();
+
         return s;
+    }
+
+    public void doPost (HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException{
+
+        HttpSession session = request.getSession(true);
     }
 }

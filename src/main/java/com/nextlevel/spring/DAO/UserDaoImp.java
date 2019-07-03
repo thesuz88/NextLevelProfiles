@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,24 @@ public class UserDaoImp {
         getUserInfo.setParameter("username",userName);
 
         return (List<UsersEntity>) getUserInfo.list();
+    }
+
+    public boolean validateUserExists (@RequestParam("userName") String userName, @RequestParam("password") String password){
+        boolean isValidUser;
+
+        Session session = HibernateConfig.getSessionTransaction();
+        String sqlQuery = "from UsersEntity WHERE username= :username and password= :password";
+        Query getUser = session.createQuery(sqlQuery).setParameter("username", userName).setParameter("password", password);
+
+        if (getUser.list() != null && getUser.list().size() > 0){
+
+            isValidUser = true;
+        }else{
+            isValidUser = false;
+        }
+
+        return isValidUser;
+
     }
     public ArrayList<UsersEntity> displayUserList() {
 
